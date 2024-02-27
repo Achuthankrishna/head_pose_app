@@ -237,6 +237,7 @@ def main():
     if 'show_next_step_button' not in st.session_state:
         st.session_state.show_next_step_button = False
     ########################################
+    reans_question, continue_question = st.columns([1,1])
     col1, col2, col3 = st.sidebar.columns([1,2,1])
     with col1:
         if StartBtnContainer.button("Start",type="primary",use_container_width=True):
@@ -301,14 +302,15 @@ def main():
             st.session_state.reanswer = False
             st.session_state.show_next_step_button = True
 
-        reans_question,continue_question=st.columns(2)
-        if st.session_state.show_next_step_button:
-            with reans_question:
-                ReanswerBtnContainer.button("Reanswer",on_click=show_hide)
         
-        if st.session_state.show_next_step_button:
-            with continue_question:
-                ContinueBtnContainer.button("Continue",on_click=contd_handle)
+
+        with reans_question:
+            if st.session_state.show_next_step_button:
+                ReanswerBtnContainer.button("Reanswer", on_click=show_hide,use_container_width=True)
+
+        with continue_question:
+            if st.session_state.show_next_step_button:
+                ContinueBtnContainer.button("Continue", on_click=contd_handle,use_container_width=True)
 
 
         prompt_question(st.session_state.current_question_index,container)
