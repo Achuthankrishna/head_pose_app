@@ -135,8 +135,9 @@ def main():
     st.session_state.title="VSTBalance - Daily Checkup"
     st.session_state.img=f'<img src = "https://www.virtusense.ai/hubfs/Site%20content/Imported_Blog_Media/Logo-bar-black-768x127.png"  style="position: absolute; top: 55px; left: 10px; width: 400px;">'
     st.session_state.license="""
-        
+        <div style="position: fixed; bottom: 10px; left: 15%; align: center; transform: translateX(-50%); background-color: #333; padding: 10px; border-top: 1px solid #555; text-align: center;">
             <p style="margin: 0; color: #fff;">© 2024 AchuthanKrishna. All rights reserved.</p>
+        </div>
         """
     if 'start' not in st.session_state:
         st.session_state.start = False
