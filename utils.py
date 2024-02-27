@@ -21,3 +21,14 @@ def save_video(frames, filename):
 
 
 def record_video(cap, stframe, duration=3):
+    frames = []
+    start_time = time.time()
+
+    while time.time() - start_time < duration:
+        ret, frame = cap.read()
+        #I flipped it since, my camera is default flipped
+        stframe.image(cv2.cvtColor(cv2.flip(frame, 1), cv2.COLOR_BGR2RGB))
+        if ret:
+            frames.append(frame)
+
+    return frames
