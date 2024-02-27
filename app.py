@@ -217,6 +217,25 @@ def main():
     with col1:
         if StartBtnContainer.button("Start",type="primary",use_container_width=True):
                 st.session_state.start = True
+    #Quit to exit app
+    with col2:
+
+        if qtnbtncontainer.button("Quit App",type="primary",use_container_width=True):
+                    st.session_state.quit=True
+    if st.session_state.quit:
+        StartBtnContainer.empty()
+        qtnbtncontainer.empty()
+        text_body.empty()
+        st.empty()
+
+        st.title("Please close the browser window to quit the app.")
+        time.sleep(4)
+        keyboard.press_and_release('ctrl+w')
+        # Terminate streamlit python process
+        pid = os.getpid()
+        p = psutil.Process(pid)
+        p.terminate()
+        st.stop()
     
     #If pressed Start
     if st.session_state.start:
