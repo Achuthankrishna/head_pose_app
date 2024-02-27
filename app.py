@@ -234,6 +234,8 @@ def main():
         st.session_state.change_que = False
     if 'reanswer' not in st.session_state:
         st.session_state.reanswer = False
+    if 'show_next_step_button' not in st.session_state:
+        st.session_state.show_next_step_button = False
     ########################################
     col1, col2, col3 = st.sidebar.columns([1,2,1])
     with col1:
@@ -304,7 +306,7 @@ def main():
         if st.session_state.show_next_step_button:
             continue_question = ContinueBtnContainer.button("Continue",on_click=contd_handle)
 
-            
+
         prompt_question(st.session_state.current_question_index,container)
 
 
