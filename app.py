@@ -102,7 +102,19 @@ def countdown_and_answer(cap, stframe, question_index, question):
         st.sidebar.write(f"<h3 style='text-align: center; color: white;'>Your response: </h3>"
                          f"<h3 style='text-align: center; color: red;'>{response}</h3>",
                          unsafe_allow_html=True)
-        
+##Function to terminate program
+def terminate():
+    st.empty()
+
+    st.title("Please close the browser window to quit the app.")
+    time.sleep(4)
+    keyboard.press_and_release('ctrl+w')
+    # Terminate streamlit python process
+    pid = os.getpid()
+    p = psutil.Process(pid)
+    p.terminate()
+    st.stop()
+
 def main():
     st.title('VSTBalance - Daily Checkup')
     st.markdown(f"<h5 style='text-align: left;'>Empower your nods, unlock answers. 🤖💡</h5>",unsafe_allow_html=True)
