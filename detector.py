@@ -14,17 +14,24 @@ def detect_face_movement(frames, question, stframe):
     motion_history=[]
     start_time=time.time()
     with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)as f_mesh:
-        while cap.isOpened():
-            succ,img=cap.read()
-            img=cv2.cvtColor(cv2.flip(img,1),cv2.COLOR_BGR2RGB)
-            start=time.time()
-            im_flag=False
-            res=f_mesh.process(img)
-            im_flag=True
-            img=cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
-            im_h,im_w,im_c=img.shape
-            if res.multi_face_landmarks:
-                for f in res.multi_face_landmarks:
+        # Iterate over each frame in the list
+        for frame in frames:  
+            img_h, img_w, img_c = frame.shape
+            face_3d = []
+            face_2d = []
+            results = face_mesh.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+       #assuming camera is opened
+        # while cap.isOpened():
+        #     succ,img=cap.read()
+        #     img=cv2.cvtColor(cv2.flip(img,1),cv2.COLOR_BGR2RGB)
+        #     start=time.time()
+        #     im_flag=False
+        #     res=f_mesh.process(img)
+        #     im_flag=True
+        #     img=cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
+        #     im_h,im_w,im_c=img.shape
+        #     if res.multi_face_landmarks:
+        #         for f in res.multi_face_landmarks:
 
                     # print(f)
                     
