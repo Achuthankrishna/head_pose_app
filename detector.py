@@ -13,13 +13,18 @@ drawspec=drawing.DrawingSpec(thickness=0,circle_radius=1)
 def detect_face_movement(frames, question, stframe):
     motion_history=[]
     start_time=time.time()
-    with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)as f_mesh:
+    with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)as face_mesh:
         # Iterate over each frame in the list
         for frame in frames:  
             img_h, img_w, img_c = frame.shape
             face_3d = []
             face_2d = []
             results = face_mesh.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+            if results.multi_face_landmarks:
+                for face_landmarks in results.multi_face_landmarks:
+                    for idx, lm in enumerate(face_landmarks.landmark):
+                         #CHoosing landmakrs - Nose (official mediapipe documentation :https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf )
+                         
        #assuming camera is opened
         # while cap.isOpened():
         #     succ,img=cap.read()
