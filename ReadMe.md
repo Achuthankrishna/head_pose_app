@@ -5,4 +5,4 @@ Countless of elderly people need constant attention to their needs. It is mighty
 call for help. The VirtuSense Head-Nod Assistant is an AI powered personal assistant that keeps patients in check of their needs and necessities and also offer a peice of entertainment. An AI-powered web app , designed to interact with users through a single thought-provoking question that expects a "Yes" or "No" head-nod..
 
 ##  Tools Used
-![alt text](./images/image.png) ![alt text](./images/image-1.png) ![alt text](./images/image-2.png) ![alt text](./images/image-3.png)
+<img src="./images/image.png" alt="Image 1" width="20"/> <img src="./images/image-1.png" alt="Image 2" width="20"/> <img src="./images/image-2.png" alt="Image 3" width="20"/> <img src="./images/image-3.png" alt="Image 4" width="20"/>
