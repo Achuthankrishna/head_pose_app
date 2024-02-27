@@ -3,6 +3,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import time
+from utils import record_response
 questions = [
     "Can technology solve all of humanity’s problems?",
     "Is climate change a significant threat to the planet?",
@@ -26,3 +27,8 @@ def set_default_dark_theme():
     st.markdown(theme, unsafe_allow_html=True)
 
 set_default_dark_theme()
+
+def prompt_question(questionInd,container):
+    question = questions[questionInd]
+    container.markdown(f"<h3>{question}</h3>", unsafe_allow_html=True)
+
