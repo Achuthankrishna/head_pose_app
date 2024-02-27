@@ -131,7 +131,9 @@ def main():
     textContainer=st.sidebar.empty()
     qtnbtncontainer=st.sidebar.empty()
     ##########################################################################
-
+    #Create Logo in Sidebar
+    st.session_state.title="VSTBalance - Daily Checkup"
+    st.session_state.img=f'<img src = "https://www.virtusense.ai/hubfs/Site%20content/Imported_Blog_Media/Logo-bar-black-768x127.png"  style="position: absolute; top: 55px; left: 10px; width: 400px;">'
     if 'start' not in st.session_state:
         st.session_state.start = False
     
