@@ -2,7 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 import torch
-
+import numpy as np
 #FaceMesh Detction
 f_mesh=mp.solutions.face_mesh
 drawing=mp.solutions.drawing_utils
@@ -24,7 +24,29 @@ def detect_face_movement(frames, question, stframe):
                 for face_landmarks in results.multi_face_landmarks:
                     for idx, lm in enumerate(face_landmarks.landmark):
                          #CHoosing landmakrs - Nose (official mediapipe documentation :https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf )
-                         
+                          if idx == 33 or idx == 263 or idx == 1 or idx == 61 or idx == 291 or idx == 199:
+                            if idx == 1:
+                                nose_2d = (lm.x * img_w, lm.y * img_h)
+                                nose_3d = (lm.x * img_w, lm.y * img_h, lm.z * 3000)
+
+                            x, y = int(lm.x * img_w), int(lm.y * img_h)
+
+                           
+                            face_2d.append([x, y])
+                            face_3d.append([x, y, lm.z])
+                            #get as np array
+                            face_2d = np.array(face_2d, dtype=np.float64)
+                            face_3d = np.array(face_3d, dtype=np.float64)
+                            flen=1*img_w
+                            #generate camera matrix
+                            cam_matrix = np.array([[flen, 0, img_h / 2],
+                                        [0, flen, img_w / 2],
+                                        [0, 0, 1]])
+                            d_mat=np.zeros((4,1),dtype=np.float64)
+                            #From the points obtained we are using pnp solver to ger respective pose
+                            suc,rot,trans=cv2.solvePnP(face_3d,face_2d,cam_matrix,d_mat)
+                            
+
        #assuming camera is opened
         # while cap.isOpened():
         #     succ,img=cap.read()
