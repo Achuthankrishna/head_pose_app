@@ -64,3 +64,13 @@ def countdown_and_answer(cap, stframe, question_index, question):
     response = detect_face_movement(frames, question, stframe)
     question_text_container.empty()
     save_video(frames, f"question_{question_index + 1}_response.avi")
+
+    record_response(question, response)
+    if response == "Yes":
+        st.sidebar.write(f"<h3 style='text-align: center; color: white;'>Your response: </h3>"
+                         f"<h3 style='text-align: center; color: green;'>{response}</h3>",
+                         unsafe_allow_html=True)
+    else:
+        st.sidebar.write(f"<h3 style='text-align: center; color: white;'>Your response: </h3>"
+                         f"<h3 style='text-align: center; color: red;'>{response}</h3>",
+                         unsafe_allow_html=True)
