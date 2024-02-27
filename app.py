@@ -134,6 +134,10 @@ def main():
     #Create Logo in Sidebar
     st.session_state.title="VSTBalance - Daily Checkup"
     st.session_state.img=f'<img src = "https://www.virtusense.ai/hubfs/Site%20content/Imported_Blog_Media/Logo-bar-black-768x127.png"  style="position: absolute; top: 55px; left: 10px; width: 400px;">'
+    st.session_state.license="""
+        
+            <p style="margin: 0; color: #fff;">© 2024 AchuthanKrishna. All rights reserved.</p>
+        """
     if 'start' not in st.session_state:
         st.session_state.start = False
     
@@ -145,10 +149,8 @@ def main():
 
     TitleContainer.title(st.session_state.title)
     ImgContainer.markdown(st.session_state.img, unsafe_allow_html=True,)
-    st.session_state.license="""
-        
-            <p style="margin: 0; color: #fff;">© 2024 AchuthanKrishna. All rights reserved.</p>
-        """
+    LicenseContainer.markdown(st.session_state.license, unsafe_allow_html=True,)
+
     img_b1,img_b2 = st.columns(2)
     with img_b1:
        
