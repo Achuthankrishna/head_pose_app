@@ -67,12 +67,31 @@ def countdown_and_answer(cap, stframe, question_index, question):
     response = detect_face_movement(frames, question, stframe)
     question_text_container.empty()
     # save_video(frames, f"question_{question_index + 1}_response.avi")
-    if response=="Undetermined":
+    while response=="Undetermined":
         #Need to restart loop
         warn_text = st.empty()
         warn_text.warning("Response is undetermined. Please try again.")
         time.sleep(0.5)
         warn_text.empty()
+        info_text.info("Recording 3-second video clip...")
+        frames = record_video(cap, stframe, duration=3)
+        info_text.info("Video clip recorded successfully.")
+        info_text.empty()  # Clear the info message
+
+        response = detect_face_movement(frames, question, stframe)
+        save_video(frames, f"question_{question_index + 1}_response.avi")
+    while response=="Restart":
+        warn_text = st.empty()
+        warn_text.warning("Face is not visible clearly! Please come close to the camera")
+        time.sleep(1)
+        warn_text.empty()
+        info_text.info("Recording 3-second video clip...")
+        frames = record_video(cap, stframe, duration=3)
+        info_text.info("Video clip recorded successfully.")
+        info_text.empty()  # Clear the info message
+
+        response = detect_face_movement(frames, question, stframe)
+        save_video(frames, f"question_{question_index + 1}_response.avi")
 
     record_response(question, response)
     if response == "Yes":
