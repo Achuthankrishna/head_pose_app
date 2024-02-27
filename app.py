@@ -88,7 +88,7 @@ def main():
     - When the question pops up, press "Answer" to answer the question or "Continue" to skip.
     - When the screen pops up, follow the below GIFs to understand how to nod.
     """
-    
+
     nod_yes_text = "## To nod yes, do this"
     nod_yes_gif = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjI0ZDA3emc5eWNjczluMm8wNHB6ODZnYmwwc3RmOHZkcjQ1eXFvcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoaeuzCFZ1TRsmwf1t/giphy.gif"
     
@@ -97,3 +97,4 @@ def main():
     
     reanswer_info = f"<h4 style='color : red;'>If you want to reanswer, press 'Reanswer'; else, press continue to the next question.</h4>"
     text_body.markdown(instructions)
+    st.markdown(reanswer_info,unsafe_allow_html=True)
