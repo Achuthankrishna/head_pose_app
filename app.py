@@ -145,6 +145,10 @@ def main():
 
     TitleContainer.title(st.session_state.title)
     ImgContainer.markdown(st.session_state.img, unsafe_allow_html=True,)
+    st.session_state.license="""
+        
+            <p style="margin: 0; color: #fff;">© 2024 AchuthanKrishna. All rights reserved.</p>
+        """
     img_b1,img_b2 = st.columns(2)
     with img_b1:
        
