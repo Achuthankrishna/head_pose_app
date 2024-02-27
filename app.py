@@ -3,7 +3,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import time
-from utils import record_response
+from utils import record_response,save_video,record_video
 questions = [
     "Can technology solve all of humanity’s problems?",
     "Is climate change a significant threat to the planet?",
