@@ -37,6 +37,8 @@ def detect_face_movement(frames, question, stframe):
                             face_2d.append([x, y])
                             face_3d.append([x, y, lm.z])
                             #get as np array
+                    if not face_2d or not face_3d:
+                        continue
                     face_2d = np.array(face_2d, dtype=np.float64)
                     face_3d = np.array(face_3d, dtype=np.float64)
                     flen=1 * img_w
@@ -66,6 +68,8 @@ def detect_face_movement(frames, question, stframe):
                         print("UPs")
                     else:
                         motion_history.append("Forward")
+    if not motion_history:
+        return "Restart"
     #get predominant motion out of all the motion happening 
     motion_counts = {motion: motion_history.count(motion) for motion in set(motion_history)}
     predominant_motion = max(motion_counts, key=motion_counts.get)

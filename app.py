@@ -66,7 +66,7 @@ def countdown_and_answer(cap, stframe, question_index, question):
     info_text.empty()
     response = detect_face_movement(frames, question, stframe)
     question_text_container.empty()
-    save_video(frames, f"question_{question_index + 1}_response.avi")
+    # save_video(frames, f"question_{question_index + 1}_response.avi")
     if response=="Undetermined":
         #Need to restart loop
         warn_text = st.empty()
