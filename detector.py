@@ -18,8 +18,10 @@ with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)
         res=f_mesh.process(img)
         im_flag=True
         img=cv2.cvtColor(img,cv2.COLOR_RGB2BGR)
+        im_h,im_w,im_c=img.shape
         if res.multi_face_landmarks:
             for f in res.multi_face_landmarks:
+
                 # print(f)
                 
                 # fps = 1 / totalTime
