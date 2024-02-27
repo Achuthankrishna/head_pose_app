@@ -148,7 +148,13 @@ def main():
         st.session_state.quit = False
     if 'current_question' not in st.session_state: #current ques is first
         st.session_state.current_question = questions[0]
-    
+    if 'current_question_index' not in st.session_state: #start from 0
+        st.session_state.current_question_index = 0
+    if "change_ques"not in st.session_state:
+        st.session_state.change_que = False
+    if 'reanswer' not in st.session_state:
+        st.session_state.reanswer = False
+    ########################################
     col1, col2, col3 = st.sidebar.columns([1,2,1])
     with col1:
         if StartBtnContainer.button("Start",type="primary",use_container_width=True):
