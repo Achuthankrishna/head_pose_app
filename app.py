@@ -31,4 +31,5 @@ set_default_dark_theme()
 def prompt_question(questionInd,container):
     question = questions[questionInd]
     container.markdown(f"<h3>{question}</h3>", unsafe_allow_html=True)
-
+#Function for creating a countdown when user presses answer question, which opens camera after 5 seconds
+def countdown_and_answer
