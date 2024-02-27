@@ -35,7 +35,7 @@ def prompt_question(questionInd,container):
 def countdown_and_answer(cap, stframe, question_index, question):
     print(question_index+1)
     #Print Question in H2
-    question_text = f"<h2 style='color: white;'>Question {question_index+1}: {questions[question_index]}</h2>"
+    question_text = f"<h2 style='color: white;font-weight: bold;'>Question {question_index+1}: {questions[question_index]}</h2>"
     #Container in streamlit is easy to manage elements instead of st.write()
     question_text_container = st.empty()  # Container for question text
     question_text_container.write(question_text, unsafe_allow_html=True)
