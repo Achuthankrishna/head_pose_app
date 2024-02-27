@@ -53,9 +53,9 @@ def detect_face_movement(frames, question, stframe):
                             y = angles[1] * 360
                             z = angles[2] * 360
                             #Pose estimation using angles 
-                            if y < -10:
+                            if y < -7.5:
                                 motion_history.append("Looking Left")
-                            elif y > 10:
+                            elif y > 7.5:
                                 motion_history.append("Looking Right")
                             elif x < -6.5:
                                 motion_history.append("Looking Down")
@@ -64,6 +64,16 @@ def detect_face_movement(frames, question, stframe):
                                 print("UPs")
                             else:
                                 motion_history.append("Forward")
+    #get predominant motion out of all the motion happening 
+    motion_counts = {motion: motion_history.count(motion) for motion in set(motion_history)}
+    predominant_motion = max(motion_counts, key=motion_counts.get)
+    if predominant_motion == "Looking Up" or predominant_motion == " Looking Down":
+        return "Yes"
+    elif predominant_motion == "Looking Left" or predominant_motion == "Looking Right":
+        return "No"
+    else:
+        return "Undetermined"
+
 
 
        #assuming camera is opened
@@ -86,19 +96,19 @@ def detect_face_movement(frames, question, stframe):
 
                     # cv2.putText(image, f'FPS: {int(fps)}', (20, 450), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0, 255, 0), 2)
 
-                    drawing.draw_landmarks(
-                        image=img,
-                        landmark_list=f,
-                        # connections=f_mesh.FACE_CONNECTIONS,
-                        landmark_drawing_spec=drawspec,
-                        connection_drawing_spec=drawspec)
+    #                 drawing.draw_landmarks(
+    #                     image=img,
+    #                     landmark_list=f,
+    #                     # connections=f_mesh.FACE_CONNECTIONS,
+    #                     landmark_drawing_spec=drawspec,
+    #                     connection_drawing_spec=drawspec)
 
-            cv2.imshow('Head Pose Estimation', img)
+    #         cv2.imshow('Head Pose Estimation', img)
 
-            if cv2.waitKey(5) & 0xFF == 27:
-                    break
+    #         if cv2.waitKey(5) & 0xFF == 27:
+    #                 break
 
-    cap.release()
+    # cap.release()
 
 
 
