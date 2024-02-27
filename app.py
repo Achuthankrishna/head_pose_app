@@ -135,6 +135,11 @@ def handle_eol(nextQueInd):
                 # Re-run the main function to restart the application
                 main()
     return st.session_state.current_question_index
+#To hide texts and turn reanswe state true 
+def show_hide():
+    st.empty()
+    st.session_state.reanswer = True
+    st.session_state.show_next_step_button = False
 def main():
     st.title('VSTBalance - Daily Checkup')
     st.markdown(f"<h5 style='text-align: left;'>Empower your nods, unlock answers. 🤖💡</h5>",unsafe_allow_html=True)
@@ -267,6 +272,13 @@ def main():
             countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
             st.session_state.show_next_step_button = True
         
+
+        #If user wants to reanswer
+        if st.session_state.reanswer :
+            text_body.empty()
+            countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
+            st.session_state.reanswer = False
+            st.session_state.show_next_step_button = True
         prompt_question(st.session_state.current_question_index,container)
 
 
