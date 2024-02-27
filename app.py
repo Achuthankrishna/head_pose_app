@@ -159,6 +159,26 @@ def main():
     with col1:
         if StartBtnContainer.button("Start",type="primary",use_container_width=True):
                 st.session_state.start = True
+    
+    #If pressed Start
+    if st.session_state.start:
+        text_body.empty()
+        StartBtnContainer.empty()
+        st.session_state.img = " "
+
+        st.session_state.title="Questions"
+        cap = cv2.VideoCapture(0)
+        st.sidebar.empty()
+        container = st.sidebar.container() #Check status of sidebar
+        ans_que = st.sidebar.button(f"Answer Question",key="ans_que") #answer Question button 
+      
+        change_que = st.sidebar.button(f"Change Question") #Change Ques
+        if ans_que:
+            text_body.empty()
+            countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
+            st.session_state.show_next_step_button = True
+
+
 
 
     TitleContainer.title(st.session_state.title)
