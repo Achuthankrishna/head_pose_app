@@ -11,7 +11,8 @@ drawspec=drawing.DrawingSpec(thickness=0,circle_radius=1)
 #Creating function for detection 
 
 def detect_face_movement(frames, question, stframe):
-    cap=cv2.VideoCapture(0)
+    motion_history=[]
+    start_time=time.time()
     with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)as f_mesh:
         while cap.isOpened():
             succ,img=cap.read()
