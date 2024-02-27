@@ -45,7 +45,26 @@ def detect_face_movement(frames, question, stframe):
                             d_mat=np.zeros((4,1),dtype=np.float64)
                             #From the points obtained we are using pnp solver to ger respective pose
                             suc,rot,trans=cv2.solvePnP(face_3d,face_2d,cam_matrix,d_mat)
-                            
+                            #using rot mat
+                            rot_mat,j=cv2.Rodrigues(rot)
+                            #getting angles from rot mat
+                            angles,_,_,_,_,_=cv2.RQDecomp3x3(rot_mat)
+                            x = angles[0] * 360
+                            y = angles[1] * 360
+                            z = angles[2] * 360
+                            #Pose estimation using angles 
+                            if y < -10:
+                                motion_history.append("Looking Left")
+                            elif y > 10:
+                                motion_history.append("Looking Right")
+                            elif x < -6.5:
+                                motion_history.append("Looking Down")
+                            elif x > 6.5:
+                                motion_history.append("Looking Up")
+                                print("UPs")
+                            else:
+                                motion_history.append("Forward")
+
 
        #assuming camera is opened
         # while cap.isOpened():
