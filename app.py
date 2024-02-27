@@ -286,6 +286,8 @@ def main():
             
             print(st.session_state.current_question_index)
             container.empty()
+        else :
+            container.empty()
         if ans_que:
             text_body.empty()
             countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
