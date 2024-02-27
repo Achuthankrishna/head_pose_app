@@ -98,3 +98,18 @@ def main():
     reanswer_info = f"<h4 style='color : red;'>If you want to reanswer, press 'Reanswer'; else, press continue to the next question.</h4>"
     text_body.markdown(instructions)
     st.markdown(reanswer_info,unsafe_allow_html=True)
+    #Column for the Gifs
+    img_b1,img_b2 = st.columns(2)
+    
+    with img_b1:
+       
+        st.markdown(nod_yes_text)
+        st.image(nod_yes_gif,width=200)
+        
+        
+    with img_b2:
+        st.markdown(nod_no_text)
+        st.image(nod_no_gif,width=200)
+
+if __name__ == '__main__':
+    main()
