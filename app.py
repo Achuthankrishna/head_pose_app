@@ -32,4 +32,10 @@ def prompt_question(questionInd,container):
     question = questions[questionInd]
     container.markdown(f"<h3>{question}</h3>", unsafe_allow_html=True)
 #Function for creating a countdown when user presses answer question, which opens camera after 5 seconds
-def countdown_and_answer
+def countdown_and_answer(cap, stframe, question_index, question):
+    print(question_index+1)
+    #Print Question in H2
+    question_text = f"<h2 style='color: white;'>Question {question_index+1}: {questions[question_index]}</h2>"
+    #Container in streamlit is easy to manage elements instead of st.write()
+    question_text_container = st.empty()  # Container for question text
+    question_text_container.write(question_text, unsafe_allow_html=True)
