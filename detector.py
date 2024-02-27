@@ -65,7 +65,6 @@ def detect_face_movement(frames, question, stframe):
                         motion_history.append("Looking Down")
                     elif x > 6.5:
                         motion_history.append("Looking Up")
-                        print("UPs")
                     else:
                         motion_history.append("Forward")
     if not motion_history:
