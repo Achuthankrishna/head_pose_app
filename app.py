@@ -210,5 +210,20 @@ def main():
         st.markdown(nod_no_text)
         st.image(nod_no_gif,width=200)
 
+    ##Primary Button Styling
+    st.markdown("""
+    <style>
+    button[kind="primary"] {
+    background: orange;
+    position: absolute;
+    top: 300px; left: 0px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none !important;
+
+    }
+                
+    </style>""", unsafe_allow_html=True)
+
 if __name__ == '__main__':
     main()
