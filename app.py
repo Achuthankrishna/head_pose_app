@@ -123,6 +123,15 @@ def main():
     """,
     unsafe_allow_html=True,
     )
+
+    ##### Im creating text containers since there's no animation in streaamlit
+    TitleContainer = st.sidebar.empty()
+    ImgContainer=st.sidebar.empty()
+    LicenseContainer=st.sidebar.empty()
+    textContainer=st.sidebar.empty()
+    qtnbtncontainer=st.sidebar.empty()
+    ##########################################################################
+
     if 'start' not in st.session_state:
         st.session_state.start = False
     
