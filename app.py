@@ -39,3 +39,24 @@ def countdown_and_answer(cap, stframe, question_index, question):
     #Container in streamlit is easy to manage elements instead of st.write()
     question_text_container = st.empty()  # Container for question text
     question_text_container.write(question_text, unsafe_allow_html=True)
+
+    countdown=st.empty()
+    success_text = st.empty()
+    info_text = st.empty()
+
+    #countdown for 5 seconds
+    for i in range(5, 0, -1):
+        countdown.markdown(f"<h1 style='text-align: center; color: yellow;'>{i}</h1>",
+                                unsafe_allow_html=True)
+        time.sleep(1)
+    #Clear once done
+    countdown.empty()
+    success_text.success('You can start answering')
+    time.sleep(0.5)
+    #Clear
+    success_text.empty()
+    info_text.info("Recording 3-second video clip...")
+    #Record and detect logic : We record First
+    frames = record_video(cap, stframe, duration=3)
+    info_text.info("Video clip recorded successfully.")
+    info_text.empty()
