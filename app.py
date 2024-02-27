@@ -173,6 +173,18 @@ def main():
         ans_que = st.sidebar.button(f"Answer Question",key="ans_que") #answer Question button 
       
         change_que = st.sidebar.button(f"Change Question") #Change Ques
+        if change_que : 
+            nextQueInd = (st.session_state.current_question_index+1)
+            print(len(questions))
+            print(nextQueInd)
+            st.session_state.current_question_index = nextQueInd
+            if nextQueInd==len(questions):
+                print("Im here")
+                nextQueInda=handle_eol(nextQueInd)
+                st.session_state.current_question_index=0
+            
+            print(st.session_state.current_question_index)
+            container.empty()
         if ans_que:
             text_body.empty()
             countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
