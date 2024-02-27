@@ -180,7 +180,7 @@ def main():
             st.session_state.current_question_index = nextQueInd
             if nextQueInd==len(questions):
                 print("Im here")
-                nextQueInda=handle_eol(nextQueInd)
+                # nextQueInda=handle_eol(nextQueInd)
                 st.session_state.current_question_index=0
             
             print(st.session_state.current_question_index)
@@ -189,6 +189,8 @@ def main():
             text_body.empty()
             countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
             st.session_state.show_next_step_button = True
+        
+        prompt_question(st.session_state.current_question_index,container)
 
 
 
