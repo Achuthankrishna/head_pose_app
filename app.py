@@ -100,7 +100,16 @@ def main():
     st.markdown(reanswer_info,unsafe_allow_html=True)
     #Column for the Gifs
     img_b1,img_b2 = st.columns(2)
+    stframe = st.empty()
+    #creating sidebar to start the app using container and creating a session to track user input
+    StartBtnContainer = st.sidebar.empty()
+    if 'start' not in st.session_state:
+        st.session_state.start = False
     
+    col1, col2, col3 = st.sidebar.columns([1,2,1])
+    with col1:
+        if StartBtnContainer.button("Start",type="primary",use_container_width=True):
+                st.session_state.start = True
     with img_b1:
        
         st.markdown(nod_yes_text)
