@@ -4,6 +4,7 @@ import mediapipe as mp
 import numpy as np
 import time
 from utils import record_response,save_video,record_video
+from detector import detect_face_movement
 questions = [
     "Can technology solve all of humanity’s problems?",
     "Is climate change a significant threat to the planet?",
@@ -60,3 +61,6 @@ def countdown_and_answer(cap, stframe, question_index, question):
     frames = record_video(cap, stframe, duration=3)
     info_text.info("Video clip recorded successfully.")
     info_text.empty()
+    response = detect_face_movement(frames, question, stframe)
+    question_text_container.empty()
+    save_video(frames, f"question_{question_index + 1}_response.avi")

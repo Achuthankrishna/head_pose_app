@@ -1,5 +1,6 @@
 import time
 import cv2
+import os
 def record_response(question, response):
     with open("./interaction.txt", "a") as file:
         timestamp = time.strftime('%Y-%m-%d %H:%M:%S')
@@ -12,7 +13,9 @@ def save_video(frames, filename):
         print("No frames to save.")
         return
     frame_h,frame_w,_=frames.shape[0]
-    output=cv2.VideoWriter(filename, cv2.VideoWriter_fourcc(*'DIVX'), 30, (frame_w, frame_h))
+    folder_path = "./video_logs"
+    path=os.join(folder_path,filename)
+    output=cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*'DIVX'), 30, (frame_w, frame_h))
     for frame in frames:
         output.write(frame)
 
