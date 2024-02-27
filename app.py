@@ -115,10 +115,31 @@ def terminate():
     p.terminate()
     st.stop()
 
+#Handle end of list : To prompt user to quit app or use again
+def handle_eol(nextQueInd):
+    if nextQueInd == len(questions):
+        print("This loop")
+        st.markdown("<h2 style='color: white;> All Questions Have been Answered </h2> ",unsafe_allow_html=True)
+        st.markdown("<h2 style='color: white;>Do you want to Quit or Restart? </h2> ",unsafe_allow_html=True)
+        col3,col4=st.columns(2)
+        with col3:
+            if st.button("Quit"):
+                terminate()
+        with col4:
+            if st.button("Restart"):
+                nextQueInd=0
+                st.session_state.current_question_index = 0
+                print("lauda", st.session_state.current_question_index)
+                st.session_state.show_next_step_button = False
+                st.empty()
+                # Re-run the main function to restart the application
+                main()
+    return st.session_state.current_question_index
 def main():
     st.title('VSTBalance - Daily Checkup')
     st.markdown(f"<h5 style='text-align: left;'>Empower your nods, unlock answers. 🤖💡</h5>",unsafe_allow_html=True)
     text_body=st.empty()
+    reanswer_info_text=st.empty()
     instructions = """
     ### Instructions
     - Click start to start the application.
@@ -132,9 +153,9 @@ def main():
     nod_no_text = "## To nod no, do this"
     nod_no_gif = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDk5MXBjeTI1N2FtdDZyZThzb2phMm9majRlcmtmb3E5aHhybzhkZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QuhgjzQ3PaWE8NiiMJ/giphy-downsized-large.gif"
     
-    reanswer_info = f"<h4 style='color : red;'>If you want to reanswer, press 'Reanswer'; else, press continue to the next question.</h4>"
+    reanswer_info = f"<h4 style='color : White;'>If you want to reanswer, press 'Reanswer'. Else, press continue to the next question.</h4>"
     text_body.markdown(instructions)
-    st.markdown(reanswer_info,unsafe_allow_html=True)
+    reanswer_info_text.markdown(reanswer_info,unsafe_allow_html=True)
     #Column for the Gifs
     
     stframe = st.empty()
@@ -216,8 +237,8 @@ def main():
             print(nextQueInd)
             st.session_state.current_question_index = nextQueInd
             if nextQueInd==len(questions):
-                print("Im here")
-                # nextQueInda=handle_eol(nextQueInd)
+                reanswer_info_text.empty()
+                nextQueInda=handle_eol(nextQueInd)
                 st.session_state.current_question_index=0
             
             print(st.session_state.current_question_index)
