@@ -143,7 +143,8 @@ def main():
                 st.session_state.start = True
 
 
-
+    TitleContainer.title(st.session_state.title)
+    ImgContainer.markdown(st.session_state.img, unsafe_allow_html=True,)
     img_b1,img_b2 = st.columns(2)
     with img_b1:
        
