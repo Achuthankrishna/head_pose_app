@@ -301,12 +301,14 @@ def main():
             st.session_state.reanswer = False
             st.session_state.show_next_step_button = True
 
+        reans_question,continue_question=st.columns(2)
         if st.session_state.show_next_step_button:
-            
-            reans_question = ReanswerBtnContainer.button("Reanswer",on_click=show_hide)
+            with reans_question:
+                ReanswerBtnContainer.button("Reanswer",on_click=show_hide)
         
         if st.session_state.show_next_step_button:
-            continue_question = ContinueBtnContainer.button("Continue",on_click=contd_handle)
+            with continue_question:
+                ContinueBtnContainer.button("Continue",on_click=contd_handle)
 
 
         prompt_question(st.session_state.current_question_index,container)
