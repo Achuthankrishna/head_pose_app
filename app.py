@@ -255,7 +255,7 @@ def main():
 
         st.title("Please close the browser window to quit the app.")
         time.sleep(4)
-        keyboard.press_and_release('ctrl+w')
+        keyboard.press_and_release('ctrl+c')
         # Terminate streamlit python process
         pid = os.getpid()
         p = psutil.Process(pid)
