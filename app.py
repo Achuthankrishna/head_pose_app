@@ -112,6 +112,17 @@ def main():
     ReanswerBtnContainer = st.empty() #To press reanswer
 
     #####################################
+    #Setting deefault sidebar size
+    st.markdown(
+    """
+    <style>
+        section[data-testid="stSidebar"] {
+            width: 500px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+    )
     if 'start' not in st.session_state:
         st.session_state.start = False
     
