@@ -279,6 +279,13 @@ def main():
             countdown_and_answer(cap, stframe, st.session_state.current_question_index, st.session_state.current_question)
             st.session_state.reanswer = False
             st.session_state.show_next_step_button = True
+
+        if st.session_state.show_next_step_button:
+            
+            reans_question = ReanswerBtnContainer.button("Reanswer",on_click=show_hide)
+        
+        if st.session_state.show_next_step_button:
+            continue_question = ContinueBtnContainer.button("Continue",on_click=handle_continue)
         prompt_question(st.session_state.current_question_index,container)
 
 
