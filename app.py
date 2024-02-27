@@ -140,6 +140,23 @@ def show_hide():
     st.empty()
     st.session_state.reanswer = True
     st.session_state.show_next_step_button = False
+
+def contd_handle():
+    nextQueInd = st.session_state.current_question_index+1
+    if nextQueInd >= len(questions):
+        st.markdown("<h2 style='color: white;> All Questions Have been Answered </h2> ",unsafe_allow_html=True)
+        st.markdown("<h2 style='color: white;>Do you want to Quit or Restart? </h2> ",unsafe_allow_html=True)
+        col3,col4=st.columns(2)
+        with col3:
+            if st.button("Quit"):
+                terminate()
+        with col4:
+            if st.button("Restart"):
+                nextQueInd=0
+    nextQueInd = st.session_state.current_question_index+1
+    st.session_state.current_question_index = nextQueInd
+    st.session_state.show_next_step_button = False
+
 def main():
     st.title('VSTBalance - Daily Checkup')
     st.markdown(f"<h5 style='text-align: left;'>Empower your nods, unlock answers. 🤖💡</h5>",unsafe_allow_html=True)
@@ -285,7 +302,9 @@ def main():
             reans_question = ReanswerBtnContainer.button("Reanswer",on_click=show_hide)
         
         if st.session_state.show_next_step_button:
-            continue_question = ContinueBtnContainer.button("Continue",on_click=handle_continue)
+            continue_question = ContinueBtnContainer.button("Continue",on_click=contd_handle)
+
+            
         prompt_question(st.session_state.current_question_index,container)
 
 
