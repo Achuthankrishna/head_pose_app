@@ -139,8 +139,15 @@ def main():
             <p style="margin: 0; color: #fff;">© 2024 AchuthanKrishna. All rights reserved.</p>
         </div>
         """
+    
+
+    ######SESSION STATES #########
     if 'start' not in st.session_state:
         st.session_state.start = False
+    if 'quit' not in st.session_state: #For quit
+        st.session_state.quit = False
+    if 'current_question' not in st.session_state: #current ques is first
+        st.session_state.current_question = questions[0]
     
     col1, col2, col3 = st.sidebar.columns([1,2,1])
     with col1:
