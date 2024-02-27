@@ -99,10 +99,19 @@ def main():
     text_body.markdown(instructions)
     st.markdown(reanswer_info,unsafe_allow_html=True)
     #Column for the Gifs
-    img_b1,img_b2 = st.columns(2)
+    
     stframe = st.empty()
     #creating sidebar to start the app using container and creating a session to track user input
+
+    ####BUtton Containers ######
     StartBtnContainer = st.sidebar.empty()
+    AnswerBtnContainer = st.sidebar.empty() # To press answer ques
+    changeBtnContainer = st.sidebar.empty() #To press change ques
+    ContinueBtnContainer = st.empty() #To press continue
+    EndBtnContainer = st.sidebar.empty() # To press End
+    ReanswerBtnContainer = st.empty() #To press reanswer
+
+    #####################################
     if 'start' not in st.session_state:
         st.session_state.start = False
     
@@ -110,6 +119,10 @@ def main():
     with col1:
         if StartBtnContainer.button("Start",type="primary",use_container_width=True):
                 st.session_state.start = True
+
+
+
+    img_b1,img_b2 = st.columns(2)
     with img_b1:
        
         st.markdown(nod_yes_text)
