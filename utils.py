@@ -12,10 +12,10 @@ def save_video(frames, filename):
     if len(frames) == 0:
         print("No frames to save.")
         return
-    frame_h,frame_w,_=frames.shape[0]
-    folder_path = "./video_logs"
-    path=os.join(folder_path,filename)
-    output=cv2.VideoWriter(path, cv2.VideoWriter_fourcc(*'DIVX'), 30, (frame_w, frame_h))
+    frame_h,frame_w,_=frames[0].shape
+    folder_path = "video_logs"
+    paths=os.path.join(folder_path,filename)
+    output=cv2.VideoWriter(paths, cv2.VideoWriter_fourcc(*'DIVX'), 30, (frame_w, frame_h))
     for frame in frames:
         output.write(frame)
 

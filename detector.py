@@ -4,16 +4,18 @@ import time
 import torch
 import numpy as np
 #FaceMesh Detction
-f_mesh=mp.solutions.face_mesh
+mp_f_mesh=mp.solutions.face_mesh
 drawing=mp.solutions.drawing_utils
-drawspec=drawing.DrawingSpec(thickness=0,circle_radius=1)
+drawspec=drawing.DrawingSpec(thickness=1,circle_radius=1)
 
-#Creating function for detection 
+# Creating function for detection 
 
 def detect_face_movement(frames, question, stframe):
     motion_history=[]
     start_time=time.time()
-    with f_mesh.FaceMesh(min_detection_confidence=0.75,min_tracking_confidence=0.75)as face_mesh:
+    with mp_f_mesh.FaceMesh(
+        min_detection_confidence=0.5,
+        min_tracking_confidence=0.5) as face_mesh:
         # Iterate over each frame in the list
         for frame in frames:  
             img_h, img_w, img_c = frame.shape
@@ -35,35 +37,35 @@ def detect_face_movement(frames, question, stframe):
                             face_2d.append([x, y])
                             face_3d.append([x, y, lm.z])
                             #get as np array
-                            face_2d = np.array(face_2d, dtype=np.float64)
-                            face_3d = np.array(face_3d, dtype=np.float64)
-                            flen=1*img_w
-                            #generate camera matrix
-                            cam_matrix = np.array([[flen, 0, img_h / 2],
-                                        [0, flen, img_w / 2],
-                                        [0, 0, 1]])
-                            d_mat=np.zeros((4,1),dtype=np.float64)
-                            #From the points obtained we are using pnp solver to ger respective pose
-                            suc,rot,trans=cv2.solvePnP(face_3d,face_2d,cam_matrix,d_mat)
-                            #using rot mat
-                            rot_mat,j=cv2.Rodrigues(rot)
-                            #getting angles from rot mat
-                            angles,_,_,_,_,_=cv2.RQDecomp3x3(rot_mat)
-                            x = angles[0] * 360
-                            y = angles[1] * 360
-                            z = angles[2] * 360
-                            #Pose estimation using angles 
-                            if y < -7.5:
-                                motion_history.append("Looking Left")
-                            elif y > 7.5:
-                                motion_history.append("Looking Right")
-                            elif x < -6.5:
-                                motion_history.append("Looking Down")
-                            elif x > 6.5:
-                                motion_history.append("Looking Up")
-                                print("UPs")
-                            else:
-                                motion_history.append("Forward")
+                    face_2d = np.array(face_2d, dtype=np.float64)
+                    face_3d = np.array(face_3d, dtype=np.float64)
+                    flen=1 * img_w
+                    #generate camera matrix
+                    cam_matrix = np.array([[flen, 0, img_h / 2],
+                                [0, flen, img_w / 2],
+                                [0, 0, 1]])
+                    dist_mat=np.zeros((4,1),dtype=np.float64)
+                    #From the points obtained we are using pnp solver to ger respective pose
+                    suc,rot,trans=cv2.solvePnP(face_3d,face_2d,cam_matrix,dist_mat)
+                    #using rot mat
+                    rot_mat,j=cv2.Rodrigues(rot)
+                    #getting angles from rot mat
+                    angles,mtxR, mtxQ, Qx, Qy, Qz=cv2.RQDecomp3x3(rot_mat)
+                    x = angles[0] * 360
+                    y = angles[1] * 360
+                    z = angles[2] * 360
+                    #Pose estimation using angles 
+                    if y < -7.5:
+                        motion_history.append("Looking Left")
+                    elif y > 7.5:
+                        motion_history.append("Looking Right")
+                    elif x < -6.5:
+                        motion_history.append("Looking Down")
+                    elif x > 6.5:
+                        motion_history.append("Looking Up")
+                        print("UPs")
+                    else:
+                        motion_history.append("Forward")
     #get predominant motion out of all the motion happening 
     motion_counts = {motion: motion_history.count(motion) for motion in set(motion_history)}
     predominant_motion = max(motion_counts, key=motion_counts.get)
