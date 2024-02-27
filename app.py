@@ -5,6 +5,9 @@ import numpy as np
 import time
 from utils import record_response,save_video,record_video
 from detector import detect_face_movement
+import keyboard
+import os
+import psutil
 questions = [
     "Can technology solve all of humanity’s problems?",
     "Is climate change a significant threat to the planet?",
@@ -74,3 +77,14 @@ def countdown_and_answer(cap, stframe, question_index, question):
         st.sidebar.write(f"<h3 style='text-align: center; color: white;'>Your response: </h3>"
                          f"<h3 style='text-align: center; color: red;'>{response}</h3>",
                          unsafe_allow_html=True)
+        
+def main():
+    st.title('VSTBalance - Daily Checkup')
+    st.markdown(f"<h5 style='text-align: left;'>Empower your nods, unlock answers. 🤖💡</h5>",unsafe_allow_html=True)
+    text_body=st.empty()
+    instructions = """
+    ### Instructions
+    - Click start to start the application.
+    - When the question pops up, press "Answer" to answer the question or "Continue" to skip.
+    - When the screen pops up, follow the below GIFs to understand how to nod.
+    """
