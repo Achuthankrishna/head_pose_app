@@ -1,5 +1,6 @@
 # VirtuSense Head-Nod Assistant - 🤖
-
+[![MIT License](https://img.shields.io/github/license/Achuthankrishna/head_pose_app)](https://github.com/Achuthankrishna/head_pose_app/blob/main/LICENSE)
+[![Copyright](https://img.shields.io/badge/©%202024-Achuthankrishna-blue)]()
 ## Project Overview
 Countless of elderly people need constant attention to their needs. It is mighty challenging for them to engage in day to day conversations, and
 call for help. The VirtuSense Head-Nod Assistant is an AI powered personal assistant that keeps patients in check of their needs and necessities and also offer a peice of entertainment. An AI-powered web app , designed to interact with users through a single thought-provoking question that expects a "Yes" or "No" head-nod..
