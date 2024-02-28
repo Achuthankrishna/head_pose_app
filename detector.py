@@ -1,7 +1,6 @@
 import cv2
 import mediapipe as mp
 import time
-import torch
 import numpy as np
 #FaceMesh Detction
 mp_f_mesh=mp.solutions.face_mesh
