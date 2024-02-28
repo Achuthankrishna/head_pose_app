@@ -93,7 +93,7 @@ def countdown_and_answer(cap, stframe, question_index, question):
         response = detect_face_movement(frames, question, stframe)
         save_video(frames, f"question_{question_index + 1}_response.avi")
 
-    record_response(question, response)
+    record_response(questions[question_index], response)
     if response == "Yes":
         st.sidebar.write(f"<h3 style='text-align: center; color: white;'>Your response: </h3>"
                          f"<h3 style='text-align: center; color: green;'>{response}</h3>",
@@ -252,7 +252,12 @@ def main():
         StartBtnContainer.empty()
         qtnbtncontainer.empty()
         text_body.empty()
+        reanswer_info_text.empty()
         st.empty()
+        nod_no_gif=" "
+        nod_yes_gif=" "
+        nod_yes_text=" "
+        nod_no_text=" "
 
         st.title("Please close the browser window to quit the app.")
         time.sleep(4)

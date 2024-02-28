@@ -24,7 +24,7 @@ The head-nod application is structured into following components:
 ## Dependencies 
 For the application, you are required to have docker installed. To install docker, follow the instructions given on the link [Docker Installation Guide](https://docs.docker.com/desktop/install/linux-install/).
 
-Further ensure, you have git installed in your device OS. If not you can install git by just using the following command :
+Further ensure, you have git installed in your device OS. If not you can install git by just using the following command:
 ```bash
     sudo apt install git-all
 ```
@@ -84,3 +84,8 @@ Further ensure, you have git installed in your device OS. If not you can install
 ## Troubleshooting
 - If user encounter any issues with the video recording, ensure your Docker is configured correctly. The application is best developed for a **debian device** where camera device ID is accessible and not truncated.
 - Any issues with dependency versions, refer to `requirements.txt` and adjust the package versions if necessary.
+
+## Deployment Videos 
+
+### Case 1: User Responds Yes and Quits App: 
+[!Image: Yes and Quit](./images/yes-quit.gif)

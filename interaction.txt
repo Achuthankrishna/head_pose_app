@@ -1,92 +1,40 @@
-Question: Can technology solve all of humanity’s problems?
+Question: Can technology solve all of humanityï¿½s problems?
 Response: Yes
-Time: 2024-02-27 17:18:15
+Time: 2024-02-27 22:24:23
 
-Question: Can technology solve all of humanity’s problems?
+Question: Can technology solve all of humanityï¿½s problems?
 Response: Yes
-Time: 2024-02-27 17:19:13
+Time: 2024-02-27 22:24:39
 
-Question: Can technology solve all of humanity’s problems?
-Response: Undetermined
-Time: 2024-02-27 17:20:22
+Question: Can technology solve all of humanityï¿½s problems?
+Response: Yes
+Time: 2024-02-27 22:29:30
 
-Question: Can technology solve all of humanity’s problems?
-Response: Undetermined
-Time: 2024-02-27 17:26:24
-
-Question: Can technology solve all of humanity’s problems?
-Response: Undetermined
-Time: 2024-02-27 17:27:03
-
-Question: Can technology solve all of humanity’s problems?
-Response: Restart
-Time: 2024-02-27 17:30:59
-
-Question: Can technology solve all of humanity’s problems?
-Response: Restart
-Time: 2024-02-27 17:40:06
-
-Question: Can technology solve all of humanity’s problems?
+Question: Is climate change a significant threat to the planet?
 Response: No
-Time: 2024-02-27 17:41:30
+Time: 2024-02-27 22:30:50
 
-Question: Can technology solve all of humanity’s problems?
+Question: Is climate change a significant threat to the planet?
+Response: Yes
+Time: 2024-02-27 22:31:09
+
+Question: Can technology solve all of humanityï¿½s problems?
 Response: No
-Time: 2024-02-27 17:52:57
+Time: 2024-02-27 22:42:16
 
-Question: Can technology solve all of humanity’s problems?
+Question: Should genetically modified organisms (GMOs) be banned?
 Response: No
-Time: 2024-02-27 17:55:55
+Time: 2024-02-27 22:42:55
 
-Question: Can technology solve all of humanity’s problems?
+Question: Can technology solve all of humanityï¿½s problems?
 Response: No
-Time: 2024-02-27 17:58:06
+Time: 2024-02-27 22:43:23
 
-Question: Can technology solve all of humanity’s problems?
+Question: Can technology solve all of humanityï¿½s problems?
 Response: No
-Time: 2024-02-27 18:00:16
+Time: 2024-02-27 22:43:50
 
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:01:06
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:02:12
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:03:15
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:04:10
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:05:47
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:06:32
-
-Question: Can technology solve all of humanity’s problems?
+Question: Is climate change a significant threat to the planet?
 Response: No
-Time: 2024-02-27 18:06:50
-
-Question: Can technology solve all of humanity’s problems?
-Response: No
-Time: 2024-02-27 18:07:10
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:07:37
-
-Question: Can technology solve all of humanity’s problems?
-Response: Yes
-Time: 2024-02-27 18:09:41
-
-Question: Can technology solve all of humanity’s problems?
-Response: No
-Time: 2024-02-27 18:10:12
+Time: 2024-02-27 22:44:21
 
