@@ -21,4 +21,28 @@ The head-nod application is structured into following components:
 - `open_cam.sh`: The bash file for opening camera.
 
 ## Dependencies 
-For the application, you are required to have docker installed. To install docker, follow the instructions given on the link [!Install](https://docs.docker.com/desktop/install/linux-install/)
+For the application, you are required to have docker installed. To install docker, follow the instructions given on the link [Docker Installation Guide](https://docs.docker.com/desktop/install/linux-install/).
+
+Further ensure, you have git installed in your device OS. If not you can install git by just using the following command :
+```bash
+    sudo apt install git-all
+```
+
+## Application Deployment
+1. **Git clone the repository**
+    First step is to clone the whole repository. 
+    ```bash
+        git clone https://github.com/Achuthankrishna/head_pose_app
+    ```
+1. **Build the Docker Image**
+   Navigate to the directory containing the Dockerfile and execute:
+   ```bash
+   docker build -t virtusense-voice-assistant .
+   ```
+
+2. **Run the Container**
+   To start an instance of the voice assistant application, run:
+   ```bash
+   docker run -p 5000:5000 virtusense-voice-assistant
+   ```
+   This command will map port 5000 of the container to port 5000 on your host machine
