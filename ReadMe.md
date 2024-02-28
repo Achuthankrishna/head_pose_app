@@ -20,6 +20,7 @@ The head-nod application is structured into following components:
 - `video_logs/`: Folder containing video_log files.
 - `open_browser.sh`: The bash file for opening web browswer.
 - `open_cam.sh`: The bash file for opening camera.
+- `requirements.txt`: All the dependencies and Version.
 
 ## Dependencies 
 For the application, you are required to have docker installed. To install docker, follow the instructions given on the link [Docker Installation Guide](https://docs.docker.com/desktop/install/linux-install/).
@@ -89,3 +90,14 @@ Further ensure, you have git installed in your device OS. If not you can install
 
 ### Case 1: User Responds Yes and Quits App: 
 ![Image: Yes and Quit](./images/yes-quit.gif)
+
+### Case 2: User Responds No and Re-Answers the Same Question: 
+![Image: Yes and Quit](./images/No-Reanswer.gif)
+
+### Case 3: User Nodding Is Undtermined: 
+![Image: Yes and Quit](./images/undetermined.gif)
+
+### Case 4: User Face is Either Too close or Too Far: 
+![Image: Yes and Quit](./images/not-visible.gif)
+
+---
