@@ -1,5 +1,5 @@
 # VirtuSense Head-Nod Assistant - 🤖
-[![MIT License](https://img.shields.io/github/license/Achuthankrishna/head_pose_app)](https://github.com/Achuthankrishna/head_pose_app/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/github/license/Achuthankrishna/head_pose_app)](https://github.com/Achuthankrishna/head_pose_app/LICENSE.txt)
 [![Copyright](https://img.shields.io/badge/©%202024-Achuthankrishna-blue)]()
 ## Project Overview
 Countless of elderly people need constant attention to their needs. It is mighty challenging for them to engage in day to day conversations, and
