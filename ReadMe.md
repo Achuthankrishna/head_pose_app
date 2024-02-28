@@ -51,7 +51,7 @@ sudo apt install git-all
    ```
 
 3. **Start the Container**
-   To start the streamlit web application, run ( **Debiam Systems **) :
+   To start the streamlit web application, run ( **Debian Systems**) :
    ```bash
    sudo docker run --privileged -v /dev/video0:/dev/video0 -p 8501:8501 head_pose_app
    ```
