@@ -27,7 +27,7 @@ For the application, you are required to have docker installed. To install docke
 
 Further ensure, you have git installed in your device OS. If not you can install git by just using the following command:
 ```bash
-    sudo apt install git-all
+sudo apt install git-all
 ```
 
 ## Application Deployment
@@ -38,7 +38,7 @@ Further ensure, you have git installed in your device OS. If not you can install
     ```
     Get into the folder
     ```bash
-        cd head_pose_app
+    cd head_pose_app
     ```
 2. **Build the Docker Image**
    In the command line first execute:
