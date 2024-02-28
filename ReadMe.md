@@ -61,3 +61,25 @@ Further ensure, you have git installed in your device OS. If not you can install
     localhost:8501
     ``` 
     on any browser on the system.
+
+## Software Documentation
+1. Open your web browser and navigate to `http://localhost:85001` or click on the link presented on the terminal.
+2. The user will be presented with a web interface given with instructions on how to nod and key analogies.
+3. Click on `Start` , to start the application, else if user is not feeling the moment to use the application, they can press `Quit App` to kill the process.
+4. Read the question on the side bar and press on `Answer Question` to open the interface, else the user wants to skip question, they can press `Change Question`.
+5. When pressed `Answer Question` , a countdown will be presented to the user , upon which the camera frame opens up for their response.
+6. The software first records the interaction in a 3 second window. If the detector can't detect any proper sign, it will keep prompting the user to re-record their interaction.
+7. At any point of time user can skip to the next question pressing `Change Question` button or can quit the app pressing `Quit App`. Once the user answers the given question, the detector presents the output.
+8. The user can either choose to re-answer if they're not satisfied with the detection , else can press continue to log their interaction for the question.
+9. Upon completing all Questions, the webapp will present the option of either to restart from first or quit the application. On presseing `Restart` the application starts recording response from the first question.
+
+## Methodology Adopted 
+- The detection algorithm is majorly functioning on majority action recorded for the frame time. These actions are decided by first obtaining   facial landmarks using mediapipe blendshape and FaceMeshV2 model. 
+- The obtained facial landmarks are indexed and I chose the nasal index and the extreme cheekbone index, which can be viewed from this [image](https://github.com/google/mediapipe/blob/a908d668c730da128dfa8d9f6bd25d519d006692/mediapipe/modules/face_geometry/data/canonical_face_model_uv_visualization.png)
+- From the obtained indices, we record all 3d and 2d locations of the landard for each frame and use PnPSolver to get rotation and translation vector. Further we obtain rotation matrices using Rodrigues formula.
+- Based on the Euler angles, the I classifies the predominant motion of the face. If the rotation about the y-axis (y) is significant (beyond a threshold), it indicates looking left or right. If the rotation about the x-axis (x) is significant, it indicates looking up or down. Otherwise, the face is considered to be facing forward.
+- Then  we count the occurrences of different types of motions and identify the predominant motion over the 3 second frame.Based on the predominant motion, the function returns the response, categorizing it as "Yes", "No", or "Undetermined" .
+
+## Troubleshooting
+- If user encounter any issues with the video recording, ensure your Docker is configured correctly. The application is best developed for a **debian device** where camera device ID is accessible and not truncated.
+- Any issues with dependency versions, refer to `requirements.txt` and adjust the package versions if necessary.
