@@ -32,17 +32,32 @@ Further ensure, you have git installed in your device OS. If not you can install
 1. **Git clone the repository**
     First step is to clone the whole repository. 
     ```bash
-        git clone https://github.com/Achuthankrishna/head_pose_app
+    git clone https://github.com/Achuthankrishna/head_pose_app
     ```
-1. **Build the Docker Image**
-   Navigate to the directory containing the Dockerfile and execute:
+    Get into the folder
+    ```bash
+        cd head_pose_app
+    ```
+2. **Build the Docker Image**
+   In the command line first execute:
    ```bash
-   docker build -t virtusense-voice-assistant .
+   docker -v
+   ```
+   to check your docker version. Once done , execute the command below to build the container: 
+   ```bash
+   sudo docker build -t head_pose_app .
    ```
 
-2. **Run the Container**
-   To start an instance of the voice assistant application, run:
+3. **Start the Container**
+   To start the streamlit web application, run:
    ```bash
-   docker run -p 5000:5000 virtusense-voice-assistant
+   sudo docker run -privileged -v /dev/video0:/dev/video0 -p 8501:85001 head_pose_app
    ```
-   This command will map port 5000 of the container to port 5000 on your host machine
+   This command then map the port 8501 of the container to port 8501 on your host machine.
+
+4. **Click the link on the terminal**
+    Last step is to either click on the link on terminal , else type
+    ```bash
+    localhost:8501
+    ``` 
+    on any browser on the system.
