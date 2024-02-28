@@ -19,3 +19,6 @@ The head-nod application is structured into following components:
 - `video_logs/`: Folder containing video_log files.
 - `open_browser.sh`: The bash file for opening web browswer.
 - `open_cam.sh`: The bash file for opening camera.
+
+## Dependencies 
+For the application, you are required to have docker installed. To install docker, follow the instructions given on the link [!Install](https://docs.docker.com/desktop/install/linux-install/)
