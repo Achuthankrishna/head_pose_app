@@ -51,7 +51,7 @@ sudo apt install git-all
    ```
 
 3. **Start the Container**
-   To start the streamlit web application, run:
+   To start the streamlit web application, run ( **Debiam Systems **) :
    ```bash
    sudo docker run --privileged -v /dev/video0:/dev/video0 -p 8501:8501 head_pose_app
    ```
@@ -94,7 +94,7 @@ sudo apt install git-all
 ### Case 2: User Responds No and Re-Answers the Same Question: 
 ![Image: Yes and Quit](./images/No-Reanswer.gif)
 
-### Case 3: User Nodding Is Undtermined: 
+### Case 3: User Nodding Is Undetermined: 
 ![Image: Yes and Quit](./images/undetermined.gif)
 
 ### Case 4: User Face is Either Too close or Too Far: 
