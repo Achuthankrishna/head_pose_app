@@ -88,4 +88,4 @@ Further ensure, you have git installed in your device OS. If not you can install
 ## Deployment Videos 
 
 ### Case 1: User Responds Yes and Quits App: 
-[!Image: Yes and Quit](./images/yes-quit.gif)
+![Image: Yes and Quit](./images/yes-quit.gif)
