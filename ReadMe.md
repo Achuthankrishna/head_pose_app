@@ -53,7 +53,7 @@ sudo apt install git-all
 3. **Start the Container**
    To start the streamlit web application, run:
    ```bash
-   sudo docker run -privileged -v /dev/video0:/dev/video0 -p 8501:85001 head_pose_app
+   sudo docker run --privileged -v /dev/video0:/dev/video0 -p 8501:8501 head_pose_app
    ```
    This command then map the port 8501 of the container to port 8501 on your host machine.
 
